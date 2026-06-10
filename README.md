@@ -1,4 +1,5 @@
-# End-to-End DWBI Project
+# 📊 End-to-End DWBI Project
+
 ## Retail Data Warehouse & Business Intelligence System
 
 ## 📌 Project Overview
@@ -7,226 +8,279 @@ This is a real-world End-to-End Data Warehouse & Business Intelligence (DWBI) pr
 
 It demonstrates how raw transactional data is transformed into a business-ready analytics system using:
 
-Star Schema Data Modeling
-SQL-based Data Warehouse design (Snowflake-ready)
-Power BI dashboards for decision-making
-DAX-based KPI calculations
-Business-driven reporting & insights layer
+* Star Schema Data Modeling
+* SQL-based Data Warehouse Design (Snowflake)
+* Power BI Dashboards for Decision Making
+* DAX-based KPI Calculations
+* Business-driven Reporting & Insights
 
-The goal is to enable data-driven decision making across sales, customers, products, stores, and loyalty programs.
+### 🎯 Project Goal
 
-🏗️ ## Data Warehouse Architecture
-   ## Data Pipeline Flow
-    Raw Data (CSV / Transactions)
-          ↓
-    Python (Data Processing / Cleaning)
-          ↓
-    Snowflake (Data Warehouse - Star Schema)
-          ↓
-    SQL (Transformations & Modeling)
-          ↓
-    Power BI (Dashboards & KPIs)
-          ↓
-    Business Insights & Decision Making
+Enable data-driven decision making across:
 
+* Sales
+* Customers
+* Products
+* Stores
+* Loyalty Programs
 
-## This project follows a Star Schema Design Pattern:
+---
 
+## 🏗️ Data Warehouse Architecture
+
+### 🔄 Data Pipeline Flow
+
+```text
+Raw Data (CSV / Transactions)
+          ↓
+Python (Data Processing & Cleaning)
+          ↓
+Snowflake (Data Warehouse - Star Schema)
+          ↓
+SQL (Transformations & Modeling)
+          ↓
+Power BI (Dashboards & KPIs)
+          ↓
+Business Insights & Decision Making
+```
+
+### ⭐ Star Schema Design
+
+```text
                      DimDate
                         |
-    DimCustomer —— FactOrders —— DimProduct
+DimCustomer —— FactOrders —— DimProduct
                         |
                      DimStore
                         |
-             DimLoyaltyProgram (Reference Dimension)
-             
-🧱## Data Model Design
-📅 DimDate (Time Intelligence Layer)
+             DimLoyaltyProgram
+```
 
-Supports all time-based analysis.
+---
 
-Attributes:
+## 🧱 Data Model Design
 
-DateID (PK)
-Date
-DayOfWeek
-Month
-Quarter
-Year
-IsWeekend
+### 📅 DimDate (Time Intelligence Layer)
 
-## Business Purpose:
+#### Attributes
 
-Sales trends
-Seasonality analysis
-Weekday vs weekend behavior
-👤 DimCustomer (Customer Intelligence Layer)
+* DateID (PK)
+* Date
+* DayOfWeek
+* Month
+* Quarter
+* Year
+* IsWeekend
 
-Stores customer demographic and behavioral attributes.
+#### Business Purpose
 
-## Attributes:
+* Sales Trends
+* Seasonality Analysis
+* Weekday vs Weekend Analysis
 
-CustomerID (PK)
-Name, Gender
-DateOfBirth
-Email, Address
-City, State, Country
-LoyaltyProgramID
+---
 
-## Business Purpose:
+### 👤 DimCustomer (Customer Intelligence Layer)
 
-Customer segmentation
-Targeted marketing
-Loyalty analysis
-Age-based insights
-📦 DimProduct (Product Intelligence Layer)
+#### Attributes
 
-## Attributes:
+* CustomerID (PK)
+* Name
+* Gender
+* DateOfBirth
+* Email
+* Address
+* City
+* State
+* Country
+* LoyaltyProgramID
 
-ProductID (PK)
-ProductName
-Category
-Brand
-UnitPrice
+#### Business Purpose
 
-## Business Purpose:
+* Customer Segmentation
+* Targeted Marketing
+* Loyalty Analysis
+* Age-based Insights
 
-Category performance
-Product demand analysis
-Pricing strategy optimization
-🏬 DimStore (Operational Intelligence Layer)
+---
 
-## Attributes:
+### 📦 DimProduct (Product Intelligence Layer)
 
-StoreID (PK)
-StoreType
-Location details
-ManagerName
-Opening Date
+#### Attributes
 
-## Business Purpose:
+* ProductID (PK)
+* ProductName
+* Category
+* Brand
+* UnitPrice
 
-Store benchmarking
-Regional performance
-Operational efficiency
-🎁 DimLoyaltyProgram (Retention Layer)
+#### Business Purpose
 
-## Attributes:
+* Product Performance Analysis
+* Category Analysis
+* Pricing Optimization
 
-LoyaltyProgramID
-ProgramName
-Tier
-Points
+---
 
-## Business Purpose:
+### 🏬 DimStore (Operational Intelligence Layer)
 
-Customer retention analysis
-Tier-based revenue contribution
-Loyalty effectiveness tracking
-🧾 Fact Table – FactOrders
+#### Attributes
 
-## Central transactional fact table.
+* StoreID (PK)
+* StoreType
+* Location Details
+* Manager Name
+* Opening Date
 
-Measures:
+#### Business Purpose
 
-OrderID
-DateID (FK)
-CustomerID (FK)
-ProductID (FK)
-StoreID (FK)
-QuantityOrdered
-OrderAmount
-DiscountAmount
-ShippingCost
-TotalAmount
+* Store Benchmarking
+* Regional Analysis
+* Operational Efficiency
 
-## Business Purpose:
+---
 
-Revenue tracking
-Sales performance analysis
-Profitability insights
-Operational reporting
-🎯 Business Problems Solved
+### 🎁 DimLoyaltyProgram (Retention Layer)
 
-## This DWBI system solves real business problems:
+#### Attributes
 
-## 📊 Sales Analytics
-Revenue trends across time
-Store-wise sales performance
-Product category performance
+* LoyaltyProgramID
+* ProgramName
+* ProgramTier
+* PointsAccrued
 
-## 👤 Customer Analytics
-Customer segmentation (age, gender, loyalty tier)
-High-value customer identification
-Behavioral analysis
+#### Business Purpose
 
-## 🏬 Store Analytics
-Store performance comparison
-Region-wise profitability
-Underperforming store detection
+* Customer Retention Analysis
+* Loyalty Performance Tracking
+* Tier-based Revenue Analysis
 
-## 📦 Product Analytics
-Best-selling categories
-Brand performance comparison
-Pricing effectiveness
-📊 Power BI Dashboard Design
-🧭 Section 1: Header & Filters Layer
+---
 
-## Components:
+### 🧾 FactOrders
 
-Dashboard title & branding
-Filters:
-Region
-Category
-Date
+#### Measures
 
-## Business Value:
+* OrderID
+* DateID
+* CustomerID
+* ProductID
+* StoreID
+* QuantityOrdered
+* OrderAmount
+* DiscountAmount
+* ShippingCost
+* TotalAmount
 
-Dynamic filtering
-Multi-dimensional analysis
-User-driven exploration
-📊 Section 2: KPI Layer (Executive Dashboard)
-Key KPIs:
-💰 Total Sales
-🧾 Total Orders
-👤 Total Customers
-📊 Average Order Value
-💸 Total Discount
-🚚 Total Shipping Cost
+#### Business Purpose
 
-## Business Value:
+* Revenue Tracking
+* Sales Analysis
+* Profitability Reporting
+* Operational Monitoring
 
-Executive summary view
-Real-time performance tracking
-Financial health monitoring
-📈 Section 3: Performance Reporting Layer
+---
 
-## Visuals:
+## 🎯 Business Problems Solved
 
-Store Type → Pie Chart
-Region & Year → Line Chart
-Region-wise Sales → Clustered Bar Chart
+### 📊 Sales Analytics
 
-## Business Value:
+* Revenue Trends Across Time
+* Store-wise Sales Performance
+* Product Category Analysis
 
-Store benchmarking
-Regional growth tracking
-Trend analysis over time
-👥 Section 4: Customer & Product Intelligence Layer
+### 👤 Customer Analytics
 
-## Visuals:
+* Customer Segmentation
+* High-value Customer Identification
+* Behavioral Analysis
 
-Program Tier → Donut Chart
-Age Group → Bar/Funnel Chart
-Category → Tree Map
+### 🏬 Store Analytics
 
-## Business Value:
+* Store Performance Comparison
+* Regional Profitability Analysis
+* Underperforming Store Detection
 
-Customer segmentation
-Target marketing strategy
-Product portfolio optimization
+### 📦 Product Analytics
 
-## 📊 Power BI Measures (DAX)
+* Best-selling Categories
+* Brand Performance Comparison
+* Pricing Effectiveness Analysis
+
+---
+
+## 📊 Power BI Dashboard Design
+
+### 🧭 Section 1: Header & Filters Layer
+
+#### Filters
+
+* Region
+* Category
+* Date
+
+#### Business Value
+
+* Dynamic Filtering
+* Multi-dimensional Analysis
+* Self-service Reporting
+
+---
+
+### 📈 Section 2: Executive KPI Dashboard
+
+#### KPIs
+
+* 💰 Total Sales
+* 🧾 Total Orders
+* 👤 Total Customers
+* 📊 Average Order Value
+* 💸 Total Discount
+* 🚚 Total Shipping Cost
+
+#### Business Value
+
+* Executive Monitoring
+* Financial Performance Tracking
+* KPI Visibility
+
+---
+
+### 📊 Section 3: Performance Reporting Layer
+
+#### Visuals
+
+* Amount by Store Type (Pie Chart)
+* Amount by Region & Year (Line Chart)
+* Region-wise Amount (Clustered Bar Chart)
+
+#### Business Value
+
+* Store Benchmarking
+* Regional Growth Analysis
+* Trend Monitoring
+
+---
+
+### 👥 Section 4: Customer & Product Intelligence Layer
+
+#### Visuals
+
+* Program Tier (Donut Chart)
+* Age Group (Bar/Funnel Chart)
+* Category (Tree Map)
+
+#### Business Value
+
+* Customer Segmentation
+* Marketing Optimization
+* Product Portfolio Analysis
+
+---
+
+## 📐 Power BI Measures (DAX)
+
+```DAX
 Total Sales = SUM(FactOrders[OrderAmount])
 
 Total Orders = COUNT(FactOrders[OrderID])
@@ -238,13 +292,22 @@ Total Shipping Cost = SUM(FactOrders[ShippingCost])
 Average Order Value = AVERAGE(FactOrders[OrderAmount])
 
 Total Customers = DISTINCTCOUNT(FactOrders[CustomerID])
+```
+
+---
 
 ## 👤 Calculated Columns
-🎂 Age
+
+### 🎂 Age
+
+```DAX
 Age =
 DATEDIFF(DimCustomer[DateOfBirth], TODAY(), YEAR)
+```
 
-## 👥 Age Group
+### 👥 Age Group
+
+```DAX
 Age Group =
 IF(DimCustomer[Age] < 18, "Minor",
 IF(DimCustomer[Age] < 25, "18-24",
@@ -253,70 +316,89 @@ IF(DimCustomer[Age] < 45, "35-44",
 IF(DimCustomer[Age] < 55, "45-54",
 IF(DimCustomer[Age] < 65, "55-64",
 "65+")))))))
+```
 
-##  📈 Business Impact & Insights Layer (IMPORTANT)
+---
 
-This project enables real business decisions:
+## 📈 Business Impact & Insights
 
-💡 Strategic Insights:
-Which store type generates highest revenue
-Which region is underperforming
-Which category should be expanded
-Which customer segment is most valuable
+### 💡 Strategic Insights
 
-🎯 Marketing Impact:
-Age-based targeting campaigns
-Loyalty tier-based promotions
-Category-based recommendations
+* Identify Top Performing Store Types
+* Detect Underperforming Regions
+* Expand High-Revenue Categories
+* Identify High-Value Customer Segments
 
-📦 Operational Impact:
-Store performance optimization
-Discount strategy evaluation
-Shipping cost efficiency analysis
+### 🎯 Marketing Impact
 
-📊 Executive Decision Support:
-KPI dashboards for leadership
-Revenue trend monitoring
-Customer retention insights
+* Age-based Targeting Campaigns
+* Loyalty Tier Promotions
+* Category-based Recommendations
+
+### 📦 Operational Impact
+
+* Store Performance Optimization
+* Discount Strategy Evaluation
+* Shipping Cost Efficiency Analysis
+
+### 📊 Executive Decision Support
+
+* KPI Dashboards for Leadership
+* Revenue Trend Monitoring
+* Customer Retention Insights
+
+---
 
 ## 🧠 Key Features
-End-to-End DWBI pipeline
-Star Schema Data Warehouse
-Business KPI Layer
-Power BI Interactive Dashboard
-Customer Segmentation Model
-Retail Analytics System
-Insight-driven reporting layer
+
+* End-to-End DWBI Pipeline
+* Star Schema Data Warehouse
+* KPI-driven Analytics
+* Power BI Interactive Dashboard
+* Customer Segmentation Model
+* Retail Analytics Solution
+* Insight-driven Reporting
+
+---
 
 ## 🧰 Tech Stack
 
-SQL (Data Modeling)
-Snowflake (Data Warehouse)
-Python (Data Processing)
-Power BI (Visualization)
-DAX (Business Calculations)
-Star Schema Design
+* SQL
+* Snowflake
+* Python
+* Power BI
+* DAX
+* Star Schema Design
 
-## 🚀 Future Enhancements
-ETL automation using dbt / Airflow
-Real-time streaming pipeline
-Advanced predictive analytics
-Cloud deployment (AWS / Azure / Snowflake)
-AI-based demand forecasting
+---
 
 ## 🧑‍💻 Skills Demonstrated
-Data Warehouse Architecture
-Dimensional Modeling (Star Schema)
-SQL Development
-Power BI Dashboarding
-Business Intelligence Design
-KPI & Metrics Design
-Retail Analytics Thinking
-📌 Final Note
 
-This project represents a production-style retail analytics system that converts raw data into actionable business insights using a structured DWBI approach.
+* Data Warehouse Architecture
+* Dimensional Modeling
+* SQL Development
+* Power BI Dashboarding
+* Business Intelligence Design
+* KPI Development
+* Retail Analytics
 
-👤 Author - Anuj Sharma
+---
 
-Domain: Data Analytics | Data Engineering | Business Intelligence
-Focus: End-to-End Data Warehouse + BI Systems
+## 🚀 Future Enhancements
+
+* dbt Integration
+* Airflow Automation
+* Real-time Data Pipelines
+* Predictive Analytics
+* Cloud Deployment
+* AI-based Demand Forecasting
+
+---
+
+## 👤 Author
+
+**Anuj Sharma**
+
+**Domain:** Data Analytics | Data Engineering | Business Intelligence
+
+**Focus:** End-to-End Data Warehouse & Analytics Solutions
