@@ -17,24 +17,24 @@ The goal is to enable data-driven decision making across sales, customers, produ
 
 🏗️ ## Data Warehouse Architecture
    ## Data Pipeline Flow
-Raw Data (CSV / Transactions)
+    Raw Data (CSV / Transactions)
           ↓
-Python (Data Processing / Cleaning)
+    Python (Data Processing / Cleaning)
           ↓
-Snowflake (Data Warehouse - Star Schema)
+    Snowflake (Data Warehouse - Star Schema)
           ↓
-SQL (Transformations & Modeling)
+    SQL (Transformations & Modeling)
           ↓
-Power BI (Dashboards & KPIs)
+    Power BI (Dashboards & KPIs)
           ↓
-Business Insights & Decision Making
+    Business Insights & Decision Making
 
 
 ## This project follows a Star Schema Design Pattern:
 
                      DimDate
                         |
-DimCustomer —— FactOrders —— DimProduct
+    DimCustomer —— FactOrders —— DimProduct
                         |
                      DimStore
                         |
