@@ -1,0 +1,47 @@
+{
+  "format": "Portable model specification, not a native Power BI model",
+  "grain": "one source record per order",
+  "relationships": [
+    {
+      "one_table": "DimDate",
+      "one_key": "DateID",
+      "many_table": "FactOrders",
+      "many_key": "DateID",
+      "cross_filter": "single"
+    },
+    {
+      "one_table": "DimProduct",
+      "one_key": "ProductID",
+      "many_table": "FactOrders",
+      "many_key": "ProductID",
+      "cross_filter": "single"
+    },
+    {
+      "one_table": "DimStore",
+      "one_key": "StoreID",
+      "many_table": "FactOrders",
+      "many_key": "StoreID",
+      "cross_filter": "single"
+    },
+    {
+      "one_table": "DimCustomer",
+      "one_key": "CustomerID",
+      "many_table": "FactOrders",
+      "many_key": "CustomerID",
+      "cross_filter": "single"
+    },
+    {
+      "one_table": "DimLoyaltyProgram",
+      "one_key": "LoyaltyProgramID",
+      "many_table": "DimCustomer",
+      "many_key": "LoyaltyProgramID",
+      "cross_filter": "single"
+    }
+  ],
+  "date_table": {
+    "table": "DimDate",
+    "column": "Date"
+  },
+  "measures_file": "measures.dax",
+  "currency": "unspecified"
+}

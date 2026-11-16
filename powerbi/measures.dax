@@ -1,0 +1,6 @@
+Total Sales = SUM(FactOrders[OrderAmount])
+Total Orders = DISTINCTCOUNT(FactOrders[OrderID])
+Total Customers = DISTINCTCOUNT(FactOrders[CustomerID])
+Average Order Value = DIVIDE([Total Sales], [Total Orders])
+Total Discount = SUM(FactOrders[DiscountAmount])
+Total Shipping Cost = SUM(FactOrders[ShippingCost])
