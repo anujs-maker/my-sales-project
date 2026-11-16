@@ -1,0 +1,8 @@
+{
+  "fact_rows": 1000000,
+  "orphan_keys": 0,
+  "duplicate_order_ids": 0,
+  "max_amount_identity_error": 2.2737367544323206e-13,
+  "scope": "historical_only",
+  "sql_pandas_kpis_agree": true
+}
